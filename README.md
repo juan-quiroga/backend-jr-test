@@ -10,13 +10,13 @@ La presente prueba tiene como objetivo ver como te desempeñas a la hora de reso
  * APIs REST
  * Testing de integración
 
-El test consiste de una aplicación sencilla que se encarga de manejar un stock de productos. Se debe crear una API REST para manejar la creación, el listado, la obtención y la actualización del stock de un producto. Cada API debe interactuar con MySQL para persistir la información que corresponda. 
+El test consiste de una aplicación sencilla que se encarga de manejar un stock de productos. Se deben crear APIs REST para manejar la creación, el listado, la obtención y la actualización del stock de un producto. Cada API debe interactuar con MySQL para persistir la información que corresponda. 
 
 ## Antes de empezar
 
 ### Github
 
-Una vez que termines subirás tu código a github con lo cual tenés que bajarte el repositorio y crear una rama cuyo nombre sea tu nombre y apellido. La rama a crear debe salir de `main`. El repositorio es:   
+Una vez que termines subirás tu código a github con lo cual tenés que bajarte el repositorio y crear una rama cuyo nombre sea tu nombre y apellido. La rama a crear debe salir de `main`. El repositorio es: `https://github.com/Optiwe/backend-jr-test`
 
 ### Virtual env
 
@@ -25,16 +25,19 @@ Para poder correr el proyecto se necesitan instalar las dependencias descritas e
  1. Instalar venv con: `pip install virtualenv`
  2. Crear el venv con: `virtualenv venv`
 
-Nota: El proyecto corre sobre python 3.6 o superior. Si no estás seguro de que versión de python utiliza el venv creado, activarlo con `source venv/bin/activate` y luego correr el comando `python --version
-`. Si la version de python es inferior a 3.6, instalar python 3.7 y luego crear la venv especificando la version de python a utilizar usar, por ejemplo en linux usar `virtualenv --python=/usr/bin/python3.6 venv38`
+Nota: El proyecto corre sobre python 3.6 o superior. Si no estás seguro de que versión de python utiliza el venv creado, activalo con `source venv/bin/activate` y luego correr el comando `python --version`. Si la version de python es inferior a 3.6, instala python 3.6 y luego crear la venv especificando la version de python a utilizar usar, por ejemplo en linux usar `virtualenv --python=/usr/bin/python3.7 venv`
 
-Una vez creado el venv utilizar el siguiente comando para instalar las dependencias: `pip install -r requirements.txt`
+Una vez creado el venv, activarlo con `source venv/bin/activate` y utilizar el siguiente comando para instalar las dependencias: `pip install -r requirements.txt`
 
 ### Docker
 
 El proyecto necesita un servidor MySQL corriendo localmente. Una manera sencilla de instalar un servidor MySQL es utilizar docker. Por otro lado necesitaremos un servidor HTTP. Para poder contar con ambos servicios de manera simple utilizaremos docker-compose. Ver el archivo `docker-compose.yml` para más detalles.
 
 Luego de haber instalado docker y docker-compose utilizar el siguiente comando para levantar el servidor HTTP y el servidor MySQL: `docker-compose up`
+
+Para verificar el correcto funcionamiento de los servidores correr `pytest -s -v test_api.py::ApiTestCase::test_status`. 
+
+En el caso de que esté funcionando bien vas a ver la siguiente salida `test_api.py::ApiTestCase::test_status PASSED`. En caso de no ser asi, alguno de los dos servidores es probable que contenga algún error. Revisa la salida del comando `docker-compose up`
 
 ### Archivos del proyecto
 
@@ -54,7 +57,7 @@ La siguiente sección explica el contenido de cada archivo del proyecto:
 
 ## Desarrollo
 
-El desarrollo consiste en hacer que tanto los tests definidos en `test_itemservice.py` como en `test_api.py` . Para correr los tests utilizar el siguiente comando `pytest -s -v`
+El desarrollo consiste en hacer que tanto los tests definidos en `test_itemservice.py` como en `test_api.py` pasen correctamente. Para correr los tests utilizar el siguiente comando `pytest -s -v`
 
 ### Tests de unidad
 
@@ -67,4 +70,4 @@ Una vez que los tests de unidad te estén pasando correctamente, tenés que escr
 
 ## Para terminar
 
-Una vez que tanto los tests de unidad como los de integración te estén pasando, subí tu código y crea un PR contra la rama `main`
+Una vez que tanto los tests de unidad como los de integración te estén pasando, subí tu código al repositorio `https://github.com/Optiwe/backend-jr-test` y crea un PR contra la rama `main`

@@ -21,6 +21,10 @@ class ApiTestCase(TestCase):
     def url(self, relative):
         return 'http://localhost:8000/' + relative
 
+    def test_status(self):
+        result = self.client.get(url=self.url('status'))
+        self.assertEqual(200, result.status_code)
+
     def test_create(self):
         description = self._generate_random_string()
         body = {

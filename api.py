@@ -3,9 +3,26 @@ import dataclasses
 from flask import Flask, jsonify
 from flask import request
 
+from db import DB
 from itemservice import ItemService, ItemNotFoundException
 
 app = Flask(__name__)
+
+
+@app.route("/status", methods=['GET'])
+def status():
+    db = DB()
+    connection = db.get_connection()
+    connection.execute('SELECT 1 cache')
+    results = connection.fetchall()
+    if not results:
+        return {}, 500
+
+    result = results[0]
+    if result.get('cache', 0) is not 1:
+        return {}, 500
+
+    return {}, 200
 
 
 @app.route("/items", methods=['POST'])
@@ -30,6 +47,7 @@ def list_items():
 def get_item(item_id):
     try:
         # Write code
+        pass
     except ItemNotFoundException:
         # Fix next line
         status_code = 100
