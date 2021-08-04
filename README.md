@@ -39,6 +39,10 @@ Para verificar el correcto funcionamiento de los servidores correr `pytest -s -v
 
 En el caso de que esté funcionando bien vas a ver la siguiente salida `test_api.py::ApiTestCase::test_status PASSED`. En caso de no ser asi, alguno de los dos servidores es probable que contenga algún error. Revisa la salida del comando `docker-compose up`
 
+Referencias:
+ * Docker: https://docs.docker.com/
+ * Docker-compose: https://docs.docker.com/compose/
+
 ### Archivos del proyecto
 
 La siguiente sección explica el contenido de cada archivo del proyecto:
@@ -55,17 +59,21 @@ La siguiente sección explica el contenido de cada archivo del proyecto:
  * test_itemservice.py: Contiene algunos tests de unidad que se encargan de verificar el correcto funcionamiento de las queries.
  * uwsgi.ini: Contiene la configuración del servidor HTTP.
 
-## Desarrollo
+## A resolver:
 
-El desarrollo consiste en hacer que tanto los tests definidos en `test_itemservice.py` como en `test_api.py` pasen correctamente. Para correr los tests utilizar el siguiente comando `pytest -s -v`
+La resolución de la presente prueba consiste en hacer que tanto los tests definidos en `test_itemservice.py` como en `test_api.py` pasen correctamente. Para correr los tests utilizar el siguiente comando `pytest -s -v`
 
 ### Tests de unidad
 
 Lo primero que debes hacer es escribir el código necesario para que pasen los test definidos en `test_itemservice.py`. Para ello debes escribir el código faltante en el archivo `item.py`. El código faltante se debe encargar de ejecutar las queries a MySQL para llevar a cabo el objetivo de la función en cuestión. Para poder obtener una conexión a la db desde `item.py` usar: `self.db.get_connection()`
 
+El proyecto utiliza como conector a MySQL, el conector oficial provisto por MySQL: https://dev.mysql.com/doc/connector-python/en/
+
 ### Tests de integración
 
 Una vez que los tests de unidad te estén pasando correctamente, tenés que escribir el código faltante en el archivo `api.py` para que pasen los tests definidos en `test_api.py`. Dicho código se debe encargar de leer el body, los query params y los url params según corresponda en cada caso y ejecutar los métodos correspondientes en la clase `ItemService` 
+
+El proyecto utiliza Flask como framework web: https://flask.palletsprojects.com/en/2.0.x/ 
 
 
 ## Para terminar
