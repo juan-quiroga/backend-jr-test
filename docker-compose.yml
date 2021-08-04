@@ -1,0 +1,38 @@
+version: '3.9'
+services:
+  db:
+    image: mysql:5.7
+    container_name: backend-jr-test-db
+    command: --secure-file-priv='' --innodb_flush_log_at_trx_commit=2 --innodb_log_buffer_size=128M
+    environment:
+      MYSQL_DATABASE: testdb
+      MYSQL_ROOT_PASSWORD: password
+    healthcheck:
+      test: ["CMD", "mysql" ,"-h", "db", "-P", "3306", "-u", "root", "-ppassword", "-e", "SELECT 1 cache"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+  backend:
+    image: python:3.8
+    container_name: backend-jr-test-server
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/backend
+    expose:
+      - 8000
+    ports:
+      - 8000:8000
+    environment:
+      MYSQL_HOST: db
+    command: >
+      bash -c "cd /backend
+      && python --version
+      && python -m pip install -r requirements.txt
+      && python -m main initialize-db
+      && uwsgi --ini uwsgi.ini"
