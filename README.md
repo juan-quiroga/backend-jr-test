@@ -78,4 +78,34 @@ El proyecto utiliza Flask como framework web: https://flask.palletsprojects.com/
 
 ## Para terminar
 
+### Código
+
 Una vez que tanto los tests de unidad como los de integración te estén pasando, subí tu código al repositorio `https://github.com/Optiwe/backend-jr-test` y crea un PR contra la rama `main`
+
+### Q&A
+
+Por último algunas preguntas:
+
+#### Modelado en DB many-to-many
+
+Detalla en esta sección como harias para modelar en la base de datos una relación many-to-many entre 2 entidades. Siguiendo el ejemplo hecho en el código, dada la tabla `Item`:
+
+```sql
+CREATE TABLE IF NOT EXISTS item (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    available_amount INT NOT NULL
+ ENGINE=INNODB;
+```
+
+Definir la tabla `ItemGroup` y la tabla de juntura entre `Item`y `ItemGroup`. La entidad `ItemGroup` representa un grupo de items, por ejemplo, dado el Item `Yogourt`, este puede pertenecer a los grupos `Heladera` y `Lacteos`
+
+### Concurrencia en web servers basados en python
+
+Las siguientes preguntas requieren un grado de comprensión alto de como funcionan los web servers y los sistemas operativos. Sí querés investigar adelante! Si no, no te preocupes, lo vas a aprender cuando estes trabajando en Optiwe :)
+
+ * ¿Que es el python GIL? 
+ * ¿Que problema genera el GIL en los web servers?
+ * ¿Cómo hacen los web servers basados en python para manejar más de una request en paralelo si están limitados por el python GIL?
+ * ¿Cómo cambió el paradigma la introducción de async-io y el event loop?
+ * ¿Qué ventaja tiene usar un stack basado en async-io por sobre un stack tradicional basado en multiprocessing? 
