@@ -21,26 +21,28 @@ class ItemDAO(object):
         self.db = DB()
 
     def create(self, description: str) -> Item:
-        # Write code
+        #############################
+        #### WRITE YOUR CODE HERE ###
+        #############################
 
-        # Fix next line
-        item_id = random.randint(0, 1000000)
+        #############################
         return Item(item_id, description, 0)
 
     def list(self, amount=None, order_by=None, order=None) -> List[Item]:
-        # Write code
+        #############################
+        #### WRITE YOUR CODE HERE ###
+        #############################
 
-        # Fix next line
-        records = []
-
+        #############################
         items = jsons.load(records, List[Item])
         return items
 
     def find_by_id(self, item_id: int, lock=False) -> Optional[Item]:
-        # Write code
+        #############################
+        #### WRITE YOUR CODE HERE ###
+        #############################
 
-        # Fix next line
-        records = []
+        #############################
 
         if not records:
             return None
@@ -49,6 +51,9 @@ class ItemDAO(object):
         return item
 
     def increment(self, item: Item) -> Item:
-        # Write code
+        #############################
+        #### WRITE YOUR CODE HERE ###
+        #############################
 
+        #############################
         return item

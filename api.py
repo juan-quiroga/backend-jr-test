@@ -19,7 +19,7 @@ def status():
         return {}, 500
 
     result = results[0]
-    if result.get('cache', 0) is not 1:
+    if result.get('cache', 0) != 1:
         return {}, 500
 
     return {}, 200
@@ -27,34 +27,46 @@ def status():
 
 @app.route("/items", methods=['POST'])
 def create_item():
-    # Write code
+    #############################
+    #### WRITE YOUR CODE HERE ###
+    #############################
 
-    # Fix next line
-    status_code = 100
+    #############################
     return jsonify(dataclasses.asdict(item)), status_code
 
 
 @app.route("/items", methods=['GET'])
 def list_items():
-    # Write code
+    #############################
+    #### WRITE YOUR CODE HERE ###
+    #############################
 
-    # Fix next line
-    status_code = 100
+    #############################
     return jsonify([dataclasses.asdict(item) for item in items]), status_code
 
 
 @app.route("/items/<item_id>", methods=['GET'])
 def get_item(item_id):
     try:
-        # Write code
+        #############################
+        #### WRITE YOUR CODE HERE ###
+        #############################
+
+        #############################
         pass
     except ItemNotFoundException:
-        # Fix next line
-        status_code = 100
+        #############################
+        #### WRITE YOUR CODE HERE ###
+        #############################
+
+        #############################
         return jsonify({'error_code': 'ITEM_NOT_FOUND'}), status_code
 
-    # Fix next line
-    status_code = 100
+    #############################
+    #### WRITE YOUR CODE HERE ###
+    #############################
+
+    #############################
     return jsonify(dataclasses.asdict(item)), status_code
 
 
@@ -62,12 +74,11 @@ def get_item(item_id):
 def increment_item(item_id):
     # Write code
     if increment:
-        # Write code
+        #############################
+        #### WRITE YOUR CODE HERE ###
+        #############################
 
-        # Fix next lines
-        status_code = 100
+        #############################
         return jsonify(dataclasses.asdict(item)), status_code
     else:
-        # Fix next lines
-        status_code = 100
-        return {}, status_code
+        return {}, 200
