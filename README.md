@@ -80,7 +80,7 @@ El proyecto utiliza Flask como framework web: https://flask.palletsprojects.com/
 
 ### Código
 
-Una vez que tanto los tests de unidad como los de integración te estén pasando, subí tu código al repositorio `https://github.com/Optiwe/backend-jr-test` y crea un PR contra la rama `main`
+Una vez que tanto los tests de unidad como los de integración te estén pasando, subí tu código al repositorio `https://github.com/Optiwe/backend-jr-test` y crea un PR contra la rama `main`. Antes de poder subir el código, mandame tu usuario de github a desposito@optiwe.com
 
 ### Q&A
 
