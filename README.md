@@ -1,14 +1,15 @@
 # Backend JR Test
 
-La presente prueba tiene como objetivo ver como te desempeñas a la hora de resolver un problema. La evaluación no posee un tiempo límite de resolución. Para resolverla vas a necesitar leer sobre los siguientes temas:
- * Github
- * Bash
- * MySQL
- * Conexión a MySQL desde python
- * MySQL locking
- * Testing de unidad
- * APIs REST
- * Testing de integración
+La presente prueba tiene como objetivo ver como te desempeñas a la hora de resolver un problema. La evaluación no posee un tiempo límite de resolución. Para resolverla vas a necesitar conocimientos básicos sobre los siguientes temas:
+ * Git: https://git-scm.com/doc
+ * Github: https://docs.github.com/es
+ * Bash: https://guide.bash.academy/
+ * MySQL 5.7: https://dev.mysql.com/doc/refman/5.7/en/
+ * Conexión a MySQL desde python: https://dev.mysql.com/doc/connector-python/en/
+ * MySQL locking: https://dev.mysql.com/doc/refman/5.7/en/innodb-locking-transaction-model.html 
+ * Testing de unidad: https://realpython.com/python-testing/
+ * APIs REST: https://www.restapitutorial.com/
+ * Testing de integración: https://realpython.com/python-testing/
 
 El test consiste de una aplicación sencilla que se encarga de manejar un stock de productos. Se deben crear APIs REST para manejar la creación, el listado, la obtención y la actualización del stock de un producto. Cada API debe interactuar con MySQL para persistir la información que corresponda. 
 
