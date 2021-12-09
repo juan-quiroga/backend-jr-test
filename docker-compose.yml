@@ -20,8 +20,7 @@ services:
     image: python:3.8
     container_name: backend-jr-test-server
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     volumes:
       - .:/backend
     expose:

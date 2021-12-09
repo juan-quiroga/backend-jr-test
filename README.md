@@ -14,13 +14,21 @@ El test consiste de una aplicación sencilla que se encarga de manejar un stock 
 
 ## Antes de empezar
 
+### Sobre el sistema operativo
+
+Los comandos descritos en el presente documento están pensados para ser corridos en linux. Si trabajas en windows podés montar un subsistema en linux utilizando wsl (https://docs.microsoft.com/en-us/windows/wsl/install)
+
+Una vez instalado, recordá correr todos los comandos aquí detallados en el subsistema en linux.
+
 ### Github
 
-Una vez que termines subirás tu código a github con lo cual tenés que bajarte el repositorio y crear una rama cuyo nombre sea tu nombre y apellido. La rama a crear debe salir de `main`. El repositorio es: `https://github.com/Optiwe/backend-jr-test`
+La presentación del test la deberás hacer en github, con lo cual lo primero que tenes que hacer es hacer un fork (https://docs.github.com/es/get-started/quickstart/fork-a-repo) del presente repositorio a tu github personal.
+
+Luego de haber realizado el fork deberás bajarte el repositorio de tu github personal, a tu ambiente local y crear una rama, cuyo nombre sea tu nombre y apellido. La rama a crear debe salir de `main`.
 
 ### Virtual env
 
-Para poder correr el proyecto se necesitan instalar las dependencias descritas en el archivo `requirements.txt`. Para poder hacerlo de manera aislada primero es necesario crear un virtual environment. 
+Para poder correr el proyecto se necesitan instalar las dependencias descritas en el archivo `requirements.txt`. Para poder hacerlo de manera aislada primero es necesario crear un virtual environment (https://virtualenv.pypa.io/en/latest/). 
 
  1. Instalar venv con: `pip install virtualenv`
  2. Crear el venv con: `virtualenv venv`
@@ -80,7 +88,11 @@ El proyecto utiliza Flask como framework web: https://flask.palletsprojects.com/
 
 ### Código
 
-Una vez que tanto los tests de unidad como los de integración te estén pasando, subí tu código al repositorio `https://github.com/Optiwe/backend-jr-test` y crea un PR contra la rama `main`. Antes de poder subir el código, mandame tu usuario de github a desposito@optiwe.com
+Una vez que tanto los tests de unidad como los de integración te estén pasando, subí tu código a tu repositorio, en la rama que creaste con tu nombre y crea un PR utilizando la opción "compare across forks". 
+
+Esta última opción te permitirá crear un PR entre tu rama en tu repositorio local y la rama main en el repositorio de Optiwe. La `base` debe ser `Optiwe/backend-jr-test` rama `main` y la rama `compare` debe ser tu repositorio personal y rama cuyo nombre sea tu nombre y apellido.
+
+Una vez creado el PR avisanos por email.
 
 ### Q&A
 
