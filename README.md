@@ -78,6 +78,8 @@ Lo primero que debes hacer es escribir el código necesario para que pasen los t
 
 El proyecto utiliza como conector a MySQL, el conector oficial provisto por MySQL: https://dev.mysql.com/doc/connector-python/en/
 
+Si estas teniendo problemas para resolver el test `test_consistent_increment` lee las referencias mencionadas al comienzo.
+
 ### Tests de integración
 
 Una vez que los tests de unidad te estén pasando correctamente, tenés que escribir el código faltante en el archivo `api.py` para que pasen los tests definidos en `test_api.py`. Dicho código se debe encargar de leer el body, los query params y los url params según corresponda en cada caso y ejecutar los métodos correspondientes en la clase `ItemService` 
