@@ -1,7 +1,7 @@
 import os
 
 from lib import Singleton
-import mysql.connector as mysql
+import mysql.connector 
 
 
 class DB(object, metaclass=Singleton):
@@ -26,7 +26,7 @@ class DB(object, metaclass=Singleton):
 
     def connect(self):
         if self.connection is None:
-            self.connection = mysql.connect(
+            self.connection = mysql.connector.connect(
                 host=self.host,
                 user=self.user,
                 passwd=self.passwd,
