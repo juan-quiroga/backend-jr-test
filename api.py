@@ -6,6 +6,8 @@ from flask import request
 from db import DB
 from itemservice import ItemService, ItemNotFoundException
 
+import requests
+
 app = Flask(__name__)
 
 
@@ -27,32 +29,34 @@ def status():
 
 @app.route("/items", methods=['POST'])
 def create_item():
-    #############################
-    #### WRITE YOUR CODE HERE ###
-    #############################
 
-    #############################
+    item_id = request.args.get('item_id')
+    description = request.args.get('description')
+    available_amount = request.args.get('available_amount')
+    item = ItemService
+    item.create(description)
+    status_code = requests.get("http://localhost:8000/items").status_code
     return jsonify(dataclasses.asdict(item)), status_code
 
 
 @app.route("/items", methods=['GET'])
 def list_items():
-    #############################
-    #### WRITE YOUR CODE HERE ###
-    #############################
-
-    #############################
+    '''
+    suponiendo que tenemos un form en html
+    '''
+    items = []
+    for key,val in request.form.items():
+        items.append(key+" :"+val)
+    status_code = requests.get("http://localhost:8000/items").status_code
     return jsonify([dataclasses.asdict(item) for item in items]), status_code
 
 
 @app.route("/items/<item_id>", methods=['GET'])
 def get_item(item_id):
     try:
-        #############################
-        #### WRITE YOUR CODE HERE ###
-        #############################
-
-        #############################
+        item_id = request.form.get('item_id')
+        item = ItemService()
+        item.find_by_id(item_id)
         pass
     except ItemNotFoundException:
         #############################
