@@ -11,8 +11,8 @@ class ItemService(object):
         item = self.item_dao.create(description)
         return item
 
-    def list(self, amount: int = None, order_by: str = None, order: str = None):
-        return self.item_dao.list(amount, order_by, order)
+    def to_list(self, amount: int = None, order_by: str = None, order: str = None):
+        return self.item_dao.to_list(amount, order_by, order)
 
     def find_by_id(self, item_id: int) -> Item:
         item = self.item_dao.find_by_id(item_id)
