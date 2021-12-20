@@ -116,6 +116,8 @@ CREATE TABLE IF NOT EXISTS item (
 Definir la tabla `ItemGroup` y la tabla de juntura entre `Item`y `ItemGroup`. La entidad `ItemGroup` representa un grupo de items, por ejemplo, dado el Item `Yogourt`, este puede pertenecer a los grupos `Heladera` y `Lacteos`
 
 **Respuesta JUAN:**
+
+```sql
 #creo nueva tabla ItemGroup con algunos atributos
 CREATE TABLE ItemGroup (id_group INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, name varchar(45) not null, description varchar(500))
 #Modifico la tabla inicial del problema para añadir el id del grupo como foreign key
@@ -124,6 +126,7 @@ ALTER TABLE item ADD id_group CONSTRAINT FOREIGN KEY REFERENCES Itemgroup (ig_gr
 
 #juntura:
 SELECT i.id, i.description, i.id_group FROM item i, item_group ig WHERE i.id_group = it.id_group GROUP BY i.id_group
+```
 
 ### Concurrencia en web servers basados en python
 
